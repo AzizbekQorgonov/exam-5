@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Countries</title>
+    <script>tailwind = { config: { darkMode: 'class' } }</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+    </style>
+    <style>
+        body {
+            transition: background 300ms ease, color 300ms ease;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .dark body {
+            background: linear-gradient(135deg, #042f2e 0%, #021627 45%, #000000 100%);
+        }
+
+        .dark #navbar {
+            background: rgba(2, 18, 24, 0.55);
+            backdrop-filter: blur(6px);
+        }
+
+        .dark #navbar h1 {
+            color: #ffffff !important;
+        }
+
+        .dark .country-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.01));
+        }
+
+        .flag-img {
+            background-color: white;
+            padding: 0.25rem;
+            border-radius: 4px;
+        }
+
+        .country-card {
+            background-color: #ffffff !important;
+            color: #111827 !important;
+        }
+
+        .country-card h3,
+        .country-card p,
+        .country-card .font-medium {
+            color: #111827 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/main.min.css" />
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <header id="navbar" class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 flex items-center py-5">
+            <h1 class="text-lg font-semibold">Where in the world?</h1>
+
+            <button id="themeToggle"
+                class="ml-auto flex items-center gap-2 px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                <svg class="dark-mode w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                        d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
+                </svg>
+                <svg class="light-mode hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 -960 960 960" width="24">
+                    <path fill="#fff"
+                        d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z" />
+                </svg>
+                <span class="sr-only">Toggle theme</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="py-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-6 my-8">
+                <div class="w-full sm:w-2/3 relative">
+                    <input type="search"
+                        class="search-input w-full bg-white dark:bg-gray-700 rounded-md shadow-md px-4 py-3 pl-10 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                        placeholder="Search for a country..." />
+                    <img class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 opacity-70" src="./images/search.svg"
+                        alt="" />
+                </div>
+
+                <div class="w-full sm:w-1/3 flex justify-end">
+                    <select
+                        class="county-select filter-by-region w-48 bg-white dark:bg-gray-700 rounded-md shadow-md px-3 py-3 text-sm"
+                        name="region" id="cars">
+                        <option selected value="">Filter by region</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Americas">Americas</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul class="pagination flex flex-wrap gap-2 justify-center my-6"></ul>
+
+            <div class="countries-row grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pb-12"></div>
+        </div>
+    </main>
+
+    <script src="./js/tortinchi.js"></script>
+    <script src="./js/uchinchi.js"></script>
+    <script src="./js/second.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
